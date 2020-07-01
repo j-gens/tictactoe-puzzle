@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-orientation: upright;
+  writing-mode: vertical-lr;
+}
