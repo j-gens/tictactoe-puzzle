@@ -9,22 +9,37 @@
       <div class="title">
         TIC TAC TOE
       </div>
-      <div class="board">
-        <div class="board--row-1">
-          <div class="board--row-1--col-1" data-sq-id="sq1"></div>
-          <div class="board--row-1--col-2" data-sq-id="sq2"></div>
-          <div class="board--row-1--col-3" data-sq-id="sq3"></div>
-        </div>
-        <div class="board--row-2">
-          <div class="board--row-2--col-1" data-sq-id="sq4"></div>
-          <div class="board--row-2--col-2" data-sq-id="sq5"></div>
-          <div class="board--row-2--col-3" data-sq-id="sq6"></div>
-        </div>
-        <div class="board--row-3">
-          <div class="board--row-3--col-1" data-sq-id="sq7"></div>
-          <div class="board--row-3--col-2" data-sq-id="sq8"></div>
-          <div class="board--row-3--col-3" data-sq-id="sq9"></div>
-        </div>
+      <table class="board">
+        <tr>
+          <td class="board--square" data-sq="sq1"></td>
+          <td class="board--square" data-sq="sq2"></td>
+          <td class="board--square" data-sq="sq3"></td>
+        </tr>
+        <tr>
+          <td class="board--square" data-sq="sq4"></td>
+          <td class="board--square" data-sq="sq5"></td>
+          <td class="board--square" data-sq="sq6"></td>
+        </tr>
+        <tr>
+          <td class="board--square" data-sq="sq7"></td>
+          <td class="board--square" data-sq="sq8"></td>
+          <td class="board--square" data-sq="sq9"></td>
+        </tr>
+      </table>
+      <div class="stats">
+        <table class="winners">
+          <tr>
+            <td> </td>
+            <td id="player1"> </td>
+            <td id="player2"> </td>
+          </tr>
+          <tr>
+            <td>Total Wins:</td>
+            <td id="xWins"> 0 </td>
+            <td id="oWins"> 0 </td>
+          </tr>
+        </table>
+        <button id="resetBoard">Reset Board</button>
       </div>
     </div>
     <script src="index.js"></script>
