@@ -6,6 +6,9 @@ sq1 | sq2 | sq3
 sq4 | sq5 | sq6
 sq7 | sq8 | sq9
 */
+
+// var usingDt = document.querySelector('[data-tab="tab-1"]');
+
 const elements = ['sq1', 'sq2', 'sq3', 'sq4', 'sq5', 'sq6', 'sq7', 'sq8', 'sq9'];
 
 var gamePiece = 'X';
@@ -17,8 +20,9 @@ var player2 = null;
 //initialize will call the event handlers to 'listen'
 function initialize() {
   elements.forEach((target) => {
-    document.getElementById(target).addEventListener('click', placePieceOnClick);
+    document.querySelector(`[data-sq="${target}"]`).addEventListener('click', placePieceOnClick);
   })
+
   document.getElementById('resetBoard').addEventListener('click', clearBoardOnClick);
   setWinnersTable();
 };
@@ -29,7 +33,7 @@ function placePieceOnClick(event) {
   this.textContent = gamePiece;
   triggerPiece();
   //keep track of the square clicked for win condition
-  winObject[this.id] = this.innerText;
+  winObject[this.dataset.sq] = this.innerText;
   //remove eventListener so piece cannot be changed
   this.removeEventListener('click', placePieceOnClick);
   //determine if a win has been achieved after every click
@@ -99,7 +103,7 @@ function triggerWinner(target) {
 function clearBoardOnClick(event) {
   console.log('the board was wiped clean!');
   elements.forEach((target) => {
-    document.getElementById(target).textContent = ' ';
+    document.querySelector(`[data-sq="${target}"]`).textContent = ' ';
   });
   //reset / clear out the winObject for future gameplay:
   for (var keys in winObject) {
@@ -107,14 +111,14 @@ function clearBoardOnClick(event) {
   }
   //reset the event listeners
   elements.forEach((target) => {
-    document.getElementById(target).addEventListener('click', placePieceOnClick);
+    document.querySelector(`[data-sq="${target}"]`).addEventListener('click', placePieceOnClick);
   })
 };
 
 //remove remaining event listeners so board cannot be modified
 function removeListeners() {
   elements.forEach((target) => {
-    document.getElementById(target).removeEventListener('click', placePieceOnClick);
+    document.querySelector(`[data-sq="${target}"]`).removeEventListener('click', placePieceOnClick);
   });
 };
 
@@ -122,13 +126,14 @@ function removeListeners() {
 function setWinnersTable() {
   player1 = prompt('Player 1: please enter your name!') || 'Player 1';
   player2 = prompt('Player 2: please enter your name!') || 'Player 2';
+
   document.getElementById('player1').innerText = player1 + ' (X)';
   document.getElementById('player2').innerText = player2 + ' (O)';
 };
 
 //track the winner on the table (only reset when page is refreshed)
 function trackTheWinner(target) {
-  if (document.getElementById(target).innerText === 'X') {
+  if (document.querySelector(`[data-sq="${target}"]`).innerText === 'X') {
     document.getElementById('xWins').innerText ++;
     gamePiece = 'X';
   } else {
