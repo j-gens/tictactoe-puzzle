@@ -1,28 +1,21 @@
-//test the file path to ensure app.js is loaded properly:
-console.log('welcome to the game');
-
 /*
 sq1 | sq2 | sq3
 sq4 | sq5 | sq6
 sq7 | sq8 | sq9
 */
-
-// var usingDt = document.querySelector('[data-tab="tab-1"]');
-
 const elements = ['sq1', 'sq2', 'sq3', 'sq4', 'sq5', 'sq6', 'sq7', 'sq8', 'sq9'];
 
-var gamePiece = 'X';
-var winObject = {};
+let gamePiece = 'X';
+const winObject = {};
 
-var player1 = null;
-var player2 = null;
+let player1 = 'Player 1';
+let player2 = 'Player 2';
 
 //initialize will call the event handlers to 'listen'
 function initialize() {
   elements.forEach((target) => {
     document.querySelector(`[data-sq="${target}"]`).addEventListener('click', placePieceOnClick);
   })
-
   document.getElementById('resetBoard').addEventListener('click', clearBoardOnClick);
   document.getElementById('namePlayers').addEventListener('click', setWinnersTable);
 };
@@ -44,8 +37,12 @@ function placePieceOnClick(event) {
 function triggerPiece() {
   if (gamePiece === 'X') {
     gamePiece = 'O';
+    document.getElementById('player2').style.backgroundColor = 'lightskyblue';
+    document.getElementById('player1').style.backgroundColor = 'whitesmoke';
   } else {
     gamePiece = 'X';
+    document.getElementById('player1').style.backgroundColor = 'lightskyblue';
+    document.getElementById('player2').style.backgroundColor = 'whitesmoke';
   }
 };
 
@@ -91,9 +88,9 @@ function isWinningCondition() {
 
 function triggerWinner(target) {
   if (winObject[target] === 'X') {
-    alert('Player ' + player1 + ' won the game!');
+    alert(player1 + ' won the game!');
   } else {
-    alert('Player ' + player2 + ' won the game!');
+    alert(player2 + ' won the game!');
   }
   removeListeners();
   trackTheWinner(target);
