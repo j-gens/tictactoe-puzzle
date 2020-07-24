@@ -16,6 +16,7 @@ body {
   height: 80vh;
   margin: 20px auto;
   font-size: 20px;
+  font-weight: 600;
 }
 
 .title {
@@ -65,6 +66,10 @@ body {
   text-align: center;
   padding: 10px;
   border-radius: 5px;
+}
+
+#player1 {
+  background-color: lightskyblue;
 }
 
 #empty {
