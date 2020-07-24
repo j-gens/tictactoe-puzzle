@@ -24,7 +24,7 @@ function initialize() {
   })
 
   document.getElementById('resetBoard').addEventListener('click', clearBoardOnClick);
-  setWinnersTable();
+  document.getElementById('namePlayers').addEventListener('click', setWinnersTable);
 };
 
 //this function will add a piece ('X' or 'O') to target space when clicked
