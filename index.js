@@ -132,11 +132,10 @@ function setWinnersTable() {
 function trackTheWinner(target) {
   if (document.querySelector(`[data-sq="${target}"]`).innerText === 'X') {
     document.getElementById('xWins').innerText ++;
-    gamePiece = 'X';
   } else {
     document.getElementById('oWins').innerText ++;
-    gamePiece = 'O';
   }
+  triggerPiece();
 };
 
 //activate the event listeners upon script load:
