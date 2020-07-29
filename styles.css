@@ -15,6 +15,7 @@ body {
   width: 85vw;
   height: 80vh;
   margin: 20px auto;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 600;
 }
@@ -35,14 +36,14 @@ body {
 .board {
   width: 45%;
   height: 100%;
-  border-spacing: 5px;
+  border-spacing: 10px;
 }
 
 .board td {
   width: 33%;
   height: 33%;
   background-color: rgba(245, 245, 245, 0.7);
-  font-size: 48px;
+  font-size: 60px;
   text-align: center;
   border-radius: 5px;
 }
@@ -82,8 +83,8 @@ button {
   width: 50%;
   font-size: 18px;
   border-radius: 25px;
-  background-color: rgba(245, 245, 245, 0.7);
-  border: 2px solid whitesmoke;
+  background-color: rgba(245, 245, 245, 0.8);
+  border: none;
 }
 
 footer {

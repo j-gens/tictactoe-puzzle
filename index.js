@@ -112,7 +112,7 @@ function clearBoardOnClick(event) {
   })
 };
 
-//remove remaining event listeners so board cannot be modified
+//remove remaining event listeners so board cannot be modified further
 function removeListeners() {
   elements.forEach((target) => {
     document.querySelector(`[data-sq="${target}"]`).removeEventListener('click', placePieceOnClick);
